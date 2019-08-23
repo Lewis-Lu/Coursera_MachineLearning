@@ -89,18 +89,15 @@ for t = 1:m
     hxt = hx(t,:)';
     yvt = yVector(t,:)';
     
-    d3t = hxt - yvt; % 10 * 1
+    d3t = hxt - yvt; % 
     z2t = [1; Theta1 * a1t]; % 26*1
-    d2t = (Theta2' * d3t) .* sigmoidGradient(z2t);
     
-    delta1 = delta1 + d2t(2:end) * a1t';
-    delta2 = delta2 + d3t * a2t';
 end
 
-Theta1ZeroBias = [ zeros(size(Theta1, 1), 1) Theta1NoBias ];
-Theta2ZeroBias = [ zeros(size(Theta2, 1), 1) Theta2NoBias ];
-Theta1_grad = (1 / m) * delta1 + (lambda / m) * Theta1ZeroBias;
-Theta2_grad = (1 / m) * delta2 + (lambda / m) * Theta2ZeroBias;
+
+
+
+
 
 
 % -------------------------------------------------------------
