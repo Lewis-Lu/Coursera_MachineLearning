@@ -21,9 +21,11 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-
-
-
+for i = 1:size(X,1) % for every sample x
+    sample = X(i,:);
+    dist_vec = sum((centroids - sample).^2, 2);
+    [~, idx(i)] = min(dist_vec);
+end
 
 
 
